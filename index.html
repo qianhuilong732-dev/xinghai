@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09251e">
+  <title>星海寄愿所</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sky-glow"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">✦</span><span data-i18n="brand">星海寄愿所</span></a>
+    <label class="language-label" for="language" data-i18n="language">语言</label>
+    <select id="language" aria-label="Language">
+      <option value="zh-CN">简体中文</option>
+      <option value="zh-TW">繁體中文</option>
+      <option value="en">English</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+    </select>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow" data-i18n="eyebrow">把心愿交给星海</p>
+      <h1 data-i18n="headline">让每一盏心愿灯，<br>都有自己的星空。</h1>
+      <p class="hero-copy" data-i18n="intro">绘制一盏专属天灯，写下想说的话，再看着它慢慢升向夜空。</p>
+      <a class="primary-link" href="#make" data-i18n="start">开始制作天灯</a>
+    </section>
+
+    <section class="panel" id="make">
+      <div class="section-heading">
+        <div><p class="eyebrow" data-i18n="step1">第一步 · 制作</p><h2 data-i18n="makeTitle">画下你的天灯</h2></div>
+        <span class="tiny-star">✧</span>
+      </div>
+      <div class="maker-grid">
+        <div class="lantern-stage" id="lanternStage">
+          <div class="stars"></div>
+          <div class="lantern" id="lantern">
+            <div class="lantern-top"></div><div class="lantern-body"><span></span></div><div class="lantern-bottom"></div>
+          </div>
+          <p class="stage-hint" data-i18n="previewHint">白色灯面可以自由绘制</p>
+        </div>
+        <div class="controls">
+          <label for="shape" data-i18n="shapeLabel">选择天灯造型</label>
+          <select id="shape">
+            <option value="classic" data-i18n="classic">传统天灯</option>
+            <option value="heart" data-i18n="heart">爱心</option>
+            <option value="dog" data-i18n="dog">圆润狗狗头</option>
+            <option value="planet" data-i18n="planet">星球</option>
+            <option value="moon" data-i18n="moon">月亮</option>
+            <option value="star" data-i18n="star">星星</option>
+          </select>
+          <label data-i18n="drawLabel">在灯面上画画</label>
+          <canvas id="drawCanvas" width="520" height="320" aria-label="Lantern drawing canvas"></canvas>
+          <div class="draw-tools">
+            <input type="color" id="brushColor" value="#2d6b50" aria-label="Brush color">
+            <input type="range" id="brushSize" min="2" max="24" value="7" aria-label="Brush size">
+            <button class="quiet-btn" id="clearDrawing" data-i18n="clear">清空重画</button>
+          </div>
+          <label for="nickname" data-i18n="nicknameLabel">你的昵称</label>
+          <input id="nickname" maxlength="20" data-i18n-placeholder="nicknamePlaceholder" placeholder="给自己取个昵称">
+          <label for="wish" data-i18n="wishLabel">写下你的心愿或留言</label>
+          <textarea id="wish" maxlength="180" rows="3" data-i18n-placeholder="wishPlaceholder" placeholder="把想说的话写在这里……"></textarea>
+          <button class="launch-btn" id="launch" data-i18n="launch">放飞我的天灯 ✦</button>
+          <p class="small-note" data-i18n="localNote">当前为体验版：内容保存在此设备的浏览器中。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel sky-panel">
+      <div class="section-heading">
+        <div><p class="eyebrow" data-i18n="step2">第二步 · 相遇</p><h2 data-i18n="skyTitle">大家的星海</h2></div>
+        <span class="tiny-star">✧</span>
+      </div>
+      <div class="sky-area" id="skyArea"><p class="empty-state" id="emptyState" data-i18n="empty">这里还很安静，放飞第一盏天灯吧。</p></div>
+      <div class="wish-list" id="wishList"></div>
+    </section>
+
+    <section class="panel chat-panel">
+      <div class="section-heading">
+        <div><p class="eyebrow" data-i18n="step3">第三步 · 聊天</p><h2 data-i18n="chatTitle">星海聊天室</h2></div>
+        <span class="tiny-star">✧</span>
+      </div>
+      <p class="chat-intro" data-i18n="chatIntro">和喜欢星海的朋友打个招呼，分享日常与心情。</p>
+      <div class="chat-messages" id="chatMessages"><p class="empty-state" data-i18n="chatEmpty">还没有消息，来开启话题吧。</p></div>
+      <form id="chatForm" class="chat-form">
+        <input id="chatInput" maxlength="240" data-i18n-placeholder="chatPlaceholder" placeholder="说点什么……" required>
+        <button class="launch-btn" type="submit" data-i18n="send">发送</button>
+      </form>
+      <p class="small-note" data-i18n="chatLocalNote">聊天室目前是本机演示，不同用户之间尚未实时互通。请勿填写真实姓名、电话或住址。</p>
+    </section>
+  </main>
+  <footer><span>✦</span> <span data-i18n="footer">愿每个心愿，都能找到自己的光。</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
